@@ -40,6 +40,29 @@ a:hover {
   font-size: small;
 }
 
+@keyframes jiggle {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#collapseButton:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 @font-face {
   font-family: "Input Mono";
   src: url("./public/InputMono-Thin.ttf") format("truetype");
@@ -56,6 +79,11 @@ a:hover {
 
 li.folder {
   font-weight: normal;
+  transition: transform 0.2s ease;
+}
+
+li.folder:hover {
+  transform: scale(1.01);
 }
 
 li.folder.open {
