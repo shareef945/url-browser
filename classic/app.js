@@ -12,6 +12,10 @@ const data = {
       ],
       driganostruct: ["https://www.driganostruct.com/"],
       precisionengravings: ["https://precisionengravings.store/"],
+      falcon: [
+        "https://falcon-admin.netlify.app/",
+        "https://sairesources.netlify.app/landing-page",
+      ],
       boxbites: ["//"],
     },
     microservices: {
