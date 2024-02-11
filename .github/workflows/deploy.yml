@@ -15,7 +15,6 @@ jobs:
 
     - name: Decode SSH key
       run: |
-        mkdir -p $HOME/.ssh
         echo "${{ secrets.DO_SSH_KEY }}" | base64 -d > $HOME/.ssh/id_rsa
         chmod 600 $HOME/.ssh/id_rsa
       env:
@@ -23,6 +22,8 @@ jobs:
 
     - name: Install SSH key
       uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.DO_SSH_KEY }}
 
     - name: Deploy to Digital Ocean
       uses: appleboy/ssh-action@master
