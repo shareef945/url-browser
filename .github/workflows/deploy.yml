@@ -13,6 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Decode SSH key
+      run: |
+        echo "${{ secrets.DO_SSH_KEY }}" | base64 -d > $HOME/.ssh/id_rsa
+        chmod 600 $HOME/.ssh/id_rsa
+      env:
+        DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
+
     - name: Install SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
@@ -23,7 +30,7 @@ jobs:
       with:
         host: ${{ secrets.DO_HOST }}
         username: ${{ secrets.DO_USERNAME }}
-        key: ${{ secrets.DO_SSH_KEY }}
+        key: $HOME/.ssh/id_rsa
         script: |
           cd /root/apps/url-browser
           git pull
