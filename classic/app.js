@@ -3,7 +3,7 @@ const collapseButton = document.getElementById("collapseButton");
 
 const data = {
   root: {
-    clientwork: {
+    portfolio: {
       furddle: ["https://furddle.com/"],
       mastercardfoundation: [
         "https://portal.agriconnectghana.com/",
