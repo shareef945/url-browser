@@ -3,11 +3,24 @@ const collapseButton = document.getElementById("collapseButton");
 
 const data = {
   root: {
-    swift: {
-      api: ["https://api.saitechnology.co/swift/"],
-      ussd: ["https://api.saitechnology.co/ussd/"],
+    clientwork: {
+      furddle: ["https://furddle.com/"],
+      mastercardfoundation: [
+        "https://portal.agriconnectghana.com/",
+        "https://portal.agriconnectghana.com/project-management/login",
+        "https://portal.agriconnectghana.com/admin",
+      ],
+      driganostruct: ["https://www.driganostruct.com/"],
+      precisionengravings: ["https://precisionengravings.store/"],
+      boxbites: ["//"],
     },
-    munchies: ["https://munchies-backend-1ecfbbcf9e11.herokuapp.com/"],
+    microservices: {
+      swift: {
+        api: ["https://api.saitechnology.co/swift/"],
+        ussd: ["https://api.saitechnology.co/ussd/"],
+      },
+      munchies: ["https://munchies-backend-1ecfbbcf9e11.herokuapp.com/"],
+    },
   },
 };
 
@@ -64,15 +77,15 @@ function renderUrlBrowser(data, currentPath = "") {
 }
 
 function collapseAllFolders() {
-  const folders = urlBrowser.querySelectorAll('li.folder.open');
-  folders.forEach(folder => {
-    folder.classList.remove('open');
+  const folders = urlBrowser.querySelectorAll("li.folder.open");
+  folders.forEach((folder) => {
+    folder.classList.remove("open");
     while (folder.lastChild !== folder.firstChild) {
       folder.removeChild(folder.lastChild);
     }
   });
 }
 
-collapseButton.addEventListener('click', collapseAllFolders);
+collapseButton.addEventListener("click", collapseAllFolders);
 
 urlBrowser.appendChild(renderUrlBrowser(data, "root"));
