@@ -16,14 +16,15 @@ const data = {
         "https://falcon-admin.netlify.app/",
         "https://sairesources.netlify.app/landing-page",
       ],
-      boxbites: ["//"],
+      boxbites: ["coming soon..."],
     },
     microservices: {
       swift: {
-        api: ["https://api.saitechnology.co/swift/"],
+        "api-gateway": ["https://api.saitechnology.co/swift/"],
         ussd: ["https://api.saitechnology.co/ussd/"],
       },
       munchies: ["https://munchies-backend-1ecfbbcf9e11.herokuapp.com/"],
+      falcon: ["https://api.saitechnology.co/falcon/"],
     },
   },
 };
