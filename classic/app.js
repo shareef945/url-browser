@@ -21,10 +21,12 @@ const data = {
     microservices: {
       swift: {
         "api-gateway": ["https://api.saitechnology.co/swift/"],
-        ussd: ["https://api.saitechnology.co/ussd/"],
+        "ussd-application": ["https://api.saitechnology.co/ussd/"],
       },
-      munchies: ["https://munchies-backend-1ecfbbcf9e11.herokuapp.com/"],
-      falcon: ["https://api.saitechnology.co/falcon/"],
+      munchies: {
+        "api-gateway": ["https://munchies-backend-1ecfbbcf9e11.herokuapp.com/"],
+      },
+      falcon: { "api-gateway": ["https://api.saitechnology.co/falcon/"] },
     },
   },
 };
