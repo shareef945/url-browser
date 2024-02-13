@@ -13,23 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Decode SSH key
+      - name: Start SSH agent
         run: |
-          mkdir -p $HOME/.ssh
-          echo "${{ secrets.DO_SSH_KEY }}" | base64 --decode > $HOME/.ssh/id_rsa
-          chmod 600 $HOME/.ssh/id_rsa
-          ssh-add $HOME/.ssh/id_rsa
-        env:
-          DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
-
-      - name: Check SSH key file
-        run: |
-          if [ -s $HOME/.ssh/id_rsa ]; then
-            echo "SSH key file is not empty"
-          else
-            echo "SSH key file is empty"
-            exit 1
-          fi
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${{ secrets.DO_SSH_KEY }}"
 
       - name: Deploy to Digital Ocean
         uses: appleboy/ssh-action@master
