@@ -18,17 +18,24 @@ jobs:
           mkdir -p $HOME/.ssh
           echo "${{ secrets.DO_SSH_KEY }}" | base64 --decode > $HOME/.ssh/id_rsa
           chmod 600 $HOME/.ssh/id_rsa
-          eval "$(ssh-agent -s)"
           ssh-add $HOME/.ssh/id_rsa
         env:
           DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
+
+      - name: Check SSH key file
+        run: |
+          if [ -s $HOME/.ssh/id_rsa ]; then
+            echo "SSH key file is not empty"
+          else
+            echo "SSH key file is empty"
+            exit 1
+          fi
 
       - name: Deploy to Digital Ocean
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
           script: |
             cd /var/www/url-browser/
             git pull
