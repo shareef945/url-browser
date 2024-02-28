@@ -17,7 +17,7 @@ const data = {
         "https://sairesources.netlify.app/landing-page",
       ],
       boxbites: ["https://boxbites.webflow.io/"],
-      "swift-transport": "https://swifttransport.app/",
+      "swift-transport": ["https://swifttransport.app/"],
     },
     microservices: {
       swift: {
