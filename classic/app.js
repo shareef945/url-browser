@@ -16,7 +16,8 @@ const data = {
         "https://falcon-admin.netlify.app/",
         "https://sairesources.netlify.app/landing-page",
       ],
-      boxbites: ["coming soon..."],
+      boxbites: ["https://boxbites.webflow.io/"],
+      "swift-transport": "https://swifttransport.app/",
     },
     microservices: {
       swift: {
